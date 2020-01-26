@@ -22,7 +22,7 @@
 //#define LAMP 4
          
 const char* ssid = "S9"; //Enter your Wifi name
-const char* password = "123456"; //Enter your Wifi Password 
+const char* password = "12345678"; //Enter your Wifi Password 
 
 void startCameraServer();
 
@@ -113,6 +113,7 @@ void setup() {
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
+    digitalWrite(LED_PIN, LOW);
     delay(500);
     Serial.print(".");
   }
@@ -167,6 +168,7 @@ String SendCapturedImage(String myRecipient, String mySubject) {
   fb = esp_camera_fb_get();  
   if(!fb) {
     Serial.println("Camera capture failed");
+    digitalWrite(LED_PIN, LOW);
     delay(1000);
     ESP.restart();
     return "Camera capture failed";
