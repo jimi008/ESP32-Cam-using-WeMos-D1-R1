@@ -90,8 +90,8 @@ Publish your script with anonymous access.
 
 Upload [esp32.php](esp32.php) to your server along with [Twilio PHP SDK](https://github.com/twilio/twilio-php/archive/master.zip) that we have included in the PHP file. Replace the Twilio Account Sid and Auth Token. Find your Account Sid and Auth Token at [twilio.com/console](https://twilio.com/console)
 
-`$sid    = "xxxxxxxxxx";`
-`$token  = "xxxxxxxxxx";`
+        $sid    = "xxxxxxxxxx";
+        $token  = "xxxxxxxxxx";
 
 You also need to change the `To` WhatsApp number with your number that you have linked in Twilio. 
 
