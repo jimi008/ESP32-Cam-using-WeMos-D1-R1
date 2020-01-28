@@ -73,39 +73,42 @@ Starting with 1.6.4, Arduino allows installation of third-party platform package
 
 ### Development
 
-After finishing the installation, clone this [repository](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1) or [download](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/archive/master.zip) directly from Github and open [esp32_cam.ino](esp32_cam.ino). Before uploading the code, you need to insert your network credentials in the following variables:
+*Part of the code we used is taken from https://github.com/fustyles/Arduino*
 
+After finishing the installation, clone this [repository](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1) or [download](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/archive/master.zip) directly from Github and open [esp32_cam.ino](esp32_cam.ino). Before uploading the code, you need to insert your network credentials in the following variables:
+```c++
         const char* ssid = "REPLACE_WITH_YOUR_SSID";
         const char* password = "REPLACE_WITH_YOUR_PASSWORD";
-
+```
 Also, comment out the respective camera model line, in our case it is
-
-`#define CAMERA_MODEL_AI_THINKER //We have this model of Esp32-cam`
-
+```c++
+#define CAMERA_MODEL_AI_THINKER //We have this model of Esp32-cam
+```
 Further, you need to replace the `myScript` Google Apps Script URL with your script URL, `myRecipient` with your email & `mySubject` with your subject.
-
+```c++
         String myScript = "/macros/s/**********/exec";    //Create your Google Apps Script and replace the "myScript" path.
         String myRecipient = "youremail@gmail"; //Enter your Email address
         String mySubject = "Image Captured from Arduino Esp32-Cam"; //Enter some subject
-        
+```        
 You can create a new project in [Google apps script](https://script.google.com/home/my) and copy the code from [code.gs](Code.gs) and replace the POST request URL with your server URL. We used Siteground shared hosting for this purpose and any basic hosting can be used for this purpose. 
-
-`var url = 'http://server-url/esp32/esp32.php';`
-
+```javascript
+var url = 'http://server-url/esp32/esp32.php';
+```
 Publish your script with anonymous access.
 
 ![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/deploy.jpg
 )
 
 Upload [esp32.php](esp32.php) to your server along with [Twilio PHP SDK](https://github.com/twilio/twilio-php/archive/master.zip) that we have included in the PHP file. Replace the Twilio Account Sid and Auth Token. Find your Account Sid and Auth Token at [twilio.com/console](https://twilio.com/console)
-
+```php
         $sid    = "xxxxxxxxxx";
         $token  = "xxxxxxxxxx";
-
+```
 You also need to change the `To` WhatsApp number with your number that you have linked in Twilio. 
-
-`->create("whatsapp:+xxxxxxx", // to`
-
+```php
+$message = $twilio->messages
+                  ->create("whatsapp:+xxxxxxxx", // to number
+```
 Before uploading the code to the ESP32-Cam be sure you have connected `GPIO 0 (Io0)` to `GND` so ESP32-cam will be in flash mode. Also, keep the `ESP32 Wrover Module` board selected in this project and before uploading. Press the `Reset` button on ESP32-Cam and press the upload button in Arduino IDE. After finishing open the serial monitor in IDE and press the `Reset` button on ESP32-cam again. It will connect to wifi soon. After that press the push button to capture and send the image to the email and WhatsApp number. 
 
 ![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/email-from-esp32-cam.png
