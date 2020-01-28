@@ -119,4 +119,8 @@ And that’s it. You can check email and whatsapp for recent message.
 
 The ESP32-CAM provides an inexpensive way to build more advanced home automation projects that feature video, taking photos, and face recognition.
 
+<hr />
 
+![Attribution-NonCommercial-ShareAlike](https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png)
+[Attribution-NonCommercial-ShareAlike
+CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/)
