@@ -14,16 +14,16 @@ Capture image using ESP32-Cam (OV2640) using ESP8266 WeMos D1 R1 WiFI Processor 
 
 ### ESP8266 WeMos D1 R1 WiFI Processor with Uno
 
-![WeMos D1 R1 FootPrint](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/ESP8266-D1-WiFi-with-UNO-Footprint-Top.jpg
+![WeMos D1 R1 FootPrint](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/ESP8266-D1-WiFi-with-UNO-Footprint-Top.jpg
 )
-![WeMos D1 R1 Pinout](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/ESP8266-D1-R1-Pinout-2.jpg
+![WeMos D1 R1 Pinout](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/ESP8266-D1-R1-Pinout-2.jpg
 )
-![WeMos D1 R1 Pin Difference](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Wemos-D1-Pin-Differences.pdf%20(1).jpg
+![WeMos D1 R1 Pin Difference](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/Wemos-D1-Pin-Differences.pdf%20(1).jpg
 )
 
 ### ESP32-Cam Ai-Thinker with OV2640
 
-![ESP32-Camera Pins](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/esp32_camera_pins.jpg
+![ESP32-Camera Pins](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/esp32_camera_pins.jpg
 )
 
 ### General Description
@@ -31,7 +31,7 @@ Capture image using ESP32-Cam (OV2640) using ESP8266 WeMos D1 R1 WiFI Processor 
 In this project we will use ESP32-cam to capture image using OV2640 and send it to email, save to Google Drive and send to Whatsapp using Twilio. We can use the ESP32-cam with the FTDI programmer because it doesn’t come with a USB connector but in this project, we are using ESP8266 WeMos D1 R1 WiFI Processor with Uno to upload the code. Further, we are using Google Apps Script (https://developers.google.com/apps-script) to send the image data to email, save to Google Drive and send it to Whatsapp using Twilio API.
 
 #### Schematic 
-![ESP32-Camera & ESP8266 WeMos D1 R1 Schematic](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Schematic%20.png
+![ESP32-Camera & ESP8266 WeMos D1 R1 Schematic](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/Schematic%20.png
 )
 
 There are three `GND` pins and two pins for power: either 3.3V or 5V.
@@ -85,7 +85,7 @@ You can create a new project in [Google apps script](https://script.google.com/h
 
 Publish your script with anonymous access.
 
-![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/deploy.jpg
+![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/deploy.jpg
 )
 
 Upload [esp32.php](esp32.php) to your server along with [Twilio PHP SDK](https://github.com/twilio/twilio-php/archive/master.zip) that we have included in the PHP file. Replace the Twilio Account Sid and Auth Token. Find your Account Sid and Auth Token at [twilio.com/console](https://twilio.com/console)
@@ -99,9 +99,9 @@ You also need to change the `To` WhatsApp number with your number that you have 
 
 Before uploading the code to the ESP32-Cam be sure you have connected `GPIO 0 (Io0)` to `GND` so ESP32-cam will be in flash mode. Also, keep the `ESP32 Wrover Module` board selected in this project and before uploading. Press the `Reset` button on ESP32-Cam and press the upload button in Arduino IDE. After finishing open the serial monitor in IDE and press the `Reset` button on ESP32-cam again. It will connect to wifi soon. After that press the push button to capture and send the image to the email and WhatsApp number. 
 
-![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/email-from-esp32-cam.png
+![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/email-from-esp32-cam.png
 )
-<img src="https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/SmartSelect_20200128-203843_WhatsApp.jpg" alt="alt text" width="300">
+<img src="https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/SmartSelect_20200128-203843_WhatsApp.jpg" alt="alt text" width="300">
 
 And that’s it. You can check email and whatsapp for recent message. 
 
