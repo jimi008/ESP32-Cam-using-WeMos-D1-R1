@@ -16,12 +16,13 @@ function doPost(e) {
     }
   );
   
+  //Save camera image to drive
   savetoDrive(blob);
   
   return  ContentService.createTextOutput(response);
 }
 
-function savetoDrive(blob){
+function savetoDrive(blob) {
    //Save the photo to Google Drive
   var folder, folders = DriveApp.getFoldersByName("ESP32-CAM");
   if (folders.hasNext()) {
@@ -31,8 +32,8 @@ function savetoDrive(blob){
   }
   
     // Insert a web image
-//  var image = "http://img.labnol.org/logo.png";
-//  var blob = UrlFetchApp.fetch(image).getBlob();
+  //var image = "http://img.labnol.org/logo.png";
+  //var blob = UrlFetchApp.fetch(image).getBlob();
   
   
   var file = folder.createFile(blob);    
@@ -41,11 +42,11 @@ function savetoDrive(blob){
   Logger.log(imgId);
  
   //send image using GET request to server for Twilio 
-  sendGET(imgId)
+  sendPOST(imgId)
   
 }
 
-function sendGET(imgId) {
+function sendPOST(imgId) {
 
   // Insert a web image for testing
   //var imgId = "http://img.labnol.org/logo.png"
@@ -56,28 +57,31 @@ function sendGET(imgId) {
   var timeStamp = new Date().toString();
   
   var imgDownloadUrL = "https://drive.google.com/uc?export=download-id=" + imgId;
-  //Logger.log(imgDownloadUrL);
+
   //var imgDownloadUrL = imgId; //for testing
 
-  // parameters for Whatsapp message 
-  var queryString = "?timestamp=" + timeStamp + "&img=" + imgDownloadUrL;
+  // URL where we send POST request for Twilio Whatsapp message
+  var url = 'http://server-url/esp32/esp32.php';
 
-  // URL where we send GET request for Twilio Whatsapp message
-  var url = 'http://server url for php file' + queryString;
-  //Logger.log(url);
- 
+  var payload =
+      {
+        "timestamp" : timeStamp,
+        "img" : imgDownloadUrL,
+      };
+
   var options =
       {
-        "method"  : "GET",
+        "method"  : "POST",
+        "payload" : payload,
         "followRedirects" : true,
-        "muteHttpExceptions": false
+        "muteHttpExceptions": true
       };
 
   var result = UrlFetchApp.fetch(url, options);
 
   if (result.getResponseCode() == 200) {
 
-    Logger.log("SendGET: "+result);
+    Logger.log("Response: "+result);
    
   }
 }
