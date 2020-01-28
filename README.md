@@ -23,6 +23,9 @@ Capture image using ESP32-Cam (OV2640) using ESP8266 WeMos D1 R1 WiFI Processor 
 
 ### ESP32-Cam Ai-Thinker with OV2640
 
+![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/esp32-cam.png
+)
+
 ![ESP32-Camera Pins](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/esp32_camera_pins.jpg
 )
 
@@ -48,6 +51,9 @@ We used GPIO2 for the push button input
 ![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/a474ff55644356018ad69ff5a604c345db788602/bazaar1003542_esp32cam2.jpg
 )
 
+![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/connections.jpeg
+)
+
 ### Install ESP32 board
 In this example, we use the Arduino IDE to program the ESP32-CAM board. So, you need to have Arduino IDE installed as well as the ESP32 board using [Arduino core for the ESP32](https://github.com/espressif/arduino-esp32). Follow one of the next tutorials to install the ESP32 board, if you haven’t already:
 
@@ -61,6 +67,9 @@ Starting with 1.6.4, Arduino allows installation of third-party platform package
 - Start Arduino and open Preferences window.
 - Enter one of the release links above into *Additional Board Manager URLs* field. You can add multiple URLs, separating them with commas.
 - Open Boards Manager from Tools > Board menu and install *esp32* platform (and don't forget to select your `ESP32` board from Tools > Board menu after installation). In our case board is `ESP32 Wrover Module`.
+
+![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/arduino-ide.png
+)
 
 ### Development
 
