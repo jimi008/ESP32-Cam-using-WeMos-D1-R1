@@ -1,8 +1,8 @@
-# Capture & Send images with ESP32-Cam using ESP8266 WeMos D1 R1 WiFI Processor with Uno
+# Capture & Send images with ESP32-Cam using ESP8266 WeMos D1 R1 WiFi Processor with Uno
 
 :tada: :confetti_ball: Also published at https://www.instructables.com/id/Capture-Send-Images-With-ESP32-Cam-Using-ESP8266-W/
 
-Capture image using ESP32-Cam (OV2640) using ESP8266 WeMos D1 R1 WiFI Processor with Uno and send it to email, save to Google Drive and send it to Whatsapp using Twilio.
+Capture image using ESP32-Cam (OV2640) using ESP8266 WeMos D1 R1 WiFi Processor with Uno and send it to email, save to Google Drive and send it to Whatsapp using Twilio.
 
 
 <b>Requirements:</b>
@@ -12,7 +12,7 @@ Capture image using ESP32-Cam (OV2640) using ESP8266 WeMos D1 R1 WiFI Processor 
 4. 10kom resistor
 5. Push button
 
-### ESP8266 WeMos D1 R1 WiFI Processor with Uno
+### ESP8266 WeMos D1 R1 WiFi Processor with Uno
 
 ![WeMos D1 R1 FootPrint](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/ESP8266-D1-WiFi-with-UNO-Footprint-Top.jpg
 )
@@ -73,8 +73,6 @@ Starting with 1.6.4, Arduino allows installation of third-party platform package
 
 ### Development
 
-*Part of the code we used is taken from https://github.com/fustyles/Arduino*
-
 After finishing the installation, clone this [repository](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1) or [download](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/archive/master.zip) directly from Github and open [esp32_cam.ino](esp32_cam.ino). Before uploading the code, you need to insert your network credentials in the following variables:
 ```c++
 const char* ssid = "REPLACE_WITH_YOUR_SSID";
@@ -110,6 +108,10 @@ $message = $twilio->messages
                   ->create("whatsapp:+xxxxxxxx", // to number
 ```
 Before uploading the code to the ESP32-Cam be sure you have connected `GPIO 0 (Io0)` to `GND` so ESP32-cam will be in flash mode. Also, keep the `ESP32 Wrover Module` board selected in this project and before uploading. Press the `Reset` button on ESP32-Cam and press the upload button in Arduino IDE. After finishing open the serial monitor in IDE and press the `Reset` button on ESP32-cam again. It will connect to wifi soon. After that press the push button to capture and send the image to the email and WhatsApp number. 
+
+*Part of the code we used is taken from https://github.com/fustyles/Arduino*
+
+### Results
 
 ![ESP32-Camera](https://github.com/jimi008/ESP32-Cam-using-WeMos-D1-R1/blob/master/Readme-images/email-from-esp32-cam.png
 )
